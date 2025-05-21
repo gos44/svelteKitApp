@@ -1,4 +1,9 @@
-<div style:background="#f03" style:padding="10px">
+<script>
+    import {page} from '$app/stores'
+</script>
+{#if $page.url.pathname.startsWith('/setting')}
+<slot />
+{:else}<div style:background="#f03" style:padding="10px">
     <h3>Rout Layout</h3>
 <nav>
     <a href="/">Home</a>
@@ -10,3 +15,5 @@
 
 <footer style:margin-top="60px">all rights reserved</footer>
 </div>
+    
+{/if}

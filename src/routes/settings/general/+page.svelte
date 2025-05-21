@@ -1,5 +1,4 @@
-<nav>
-    <a href="/settings">Main geeral</a>
-</nav>
+
+<h1>General</h1>
 
 <slot />
