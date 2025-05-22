@@ -1,7 +1,26 @@
-<div style:background="#f03" style:padding="10px">
-	<h3>Root Layout</h3>
+<script lang="ts">
+	import type { LayoutData } from './$types';
+	import { page } from '$app/stores';
 
-	<slot />
+	export let data: LayoutData;
 
-	<footer style:margin-top="60px">All rights reserved.</footer>
-</div>
+	console.log($page);
+</script>
+
+<svelte:head>
+	<title>Website Name{$page.data.title ? ` - ${$page.data.title}` : ''}</title>
+	{#if $page.data.description}
+		<meta name="description" content={$page.data.description} />
+	{/if}
+</svelte:head>
+
+{#if data.user}
+	<p>Logged in as {data.user.name}</p>
+{/if}
+
+<nav>
+	<a href="/">Home</a>
+	<a href="/products">Products</a>
+</nav>
+
+<slot />
